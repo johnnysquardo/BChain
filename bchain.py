@@ -1,27 +1,30 @@
 # Initializing our blockchain list
 blockchain = []
 
+# This gets the last value of the current blockchain
 def get_last_blockchain_value():
     """ Returns the last value of the current blockchain """
     if len(blockchain) < 1:
         return None
     return blockchain[-1]
 
-
+# Adds a new value and also grabs the last blockchain value
 def add_transaction(transaction_amount, last_transaction=[1]):
     """ Append a new value as well as the last blockchain value """
     if last_transaction == None:
         last_transaction = [1]
     blockchain.append([last_transaction, transaction_amount])
 
-
+# Gets the transaction value
 def get_transaction_value():
     user_input = float(input('Your transaction amount please: '))
     return user_input
 
+# Gets your input
 def get_user_choice(): 
     user_input = input('Your choice: ')
     return user_input
+
 
 def print_blockchain_elements():
     for block in blockchain: 
