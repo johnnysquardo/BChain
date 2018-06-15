@@ -11,7 +11,7 @@ def get_last_blockchain_value():
     return blockchain[-1]
 
 # Adds a new value and also grabs the last blockchain value
-def add_transaction(sender, recipient, amount=1.0):
+def add_transaction(recipient, sender=owner, amount=1.0):
     """ Append a new value as well as the last blockchain value """
     transaction = {
         'sender': sender,
@@ -79,13 +79,18 @@ while waiting_for_input:
     user_choice = get_user_choice()
     if user_choice == '1':
         tx_data = get_transaction_value()
-        add_transaction(tx_amount, get_last_blockchain_value())
+        recipient, amount = tx_data
+        # Add the transaction amount to the blockchain
+        add_transaction(recipient, amount=amount)
+        print(open_transactions)
     elif user_choice == '2':
         print_blockchain_elements()
     elif user_choice == 'h':
+        # Make sure that you don't try to hack the blockchain if it's empty
         if len(blockchain) >= 1:
             blockchain[0] = [2]
     elif user_choice == 'q':
+        # This will lead to the loop to exist because it's running condition
         waiting_for_input = False
     else:
         print('Input was invalid. Pease pick a value from the list!')
