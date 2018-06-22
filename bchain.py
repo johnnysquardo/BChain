@@ -163,7 +163,7 @@ while waiting_for_input:
         print_blockchain_elements()
         print('Invalid blockchain!')
         break
-    print(get_balance('Johnny'))
+    print('Balance of {}: {:6.2f}'.format('Johnny', get_balance('Johnny')))
 else: 
     print('User Left!')
 
