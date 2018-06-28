@@ -2,7 +2,7 @@ import functools
 import hashlib
 from collections import OrderedDict
 
-import hash_util
+from hash_util import hash_string_256, hash_block
 
 # Initializing our blockchain list
 
